@@ -13,8 +13,8 @@ Find the last 9 digits of S(21**7, 7**21, 12**7).
 
 import matplotlib.pyplot as plt
 
-A = 250
-B = 5000
+A = 50
+B = 2000
 C = 10
 
 #A = 21**7
@@ -25,7 +25,12 @@ def F(n : int) -> int:
     if n > B:
         return n - C
     else:
-        return F(A + F(A + F(A + F(A + n))))
+        x1 = F(A + n)
+        x2 = F(A + x1)
+        x3 = F(A + x2)
+        x4 = F(A + x3)
+
+        return x4
 
 
 def S() -> int:
@@ -36,7 +41,7 @@ def S() -> int:
 
     return sum
 
-x_vals = range(0, 5000)
+x_vals = range(0, 2000)
 y_vals = []
 
 for i in x_vals:
